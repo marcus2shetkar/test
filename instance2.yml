@@ -25,4 +25,4 @@
 
 
 Note : Variable passing and lauching in pvt subnet 
- ansible-playbook -i ec2.py instance3.yml -e instance_type=t2.micro -e image=ami-05acd51c736cba473 -e region=us-east-1 -e keypair=think-data -e tag_Name=nginx-server -e tag_Service=nginx --extra-vars='ansible_python_interpreter=/usr/bin/python'
+ ansible-playbook -i ec2.py instance2.yml -e instance_type=t2.micro -e image=ami-05acd51c736cba473 -e region=us-east-1 -e keypair=think-data -e tag_Name=mysql-server -e tag_Service=mysql --extra-vars='ansible_python_interpreter=/usr/bin/python'
