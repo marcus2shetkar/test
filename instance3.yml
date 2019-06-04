@@ -19,3 +19,9 @@
          vpc_subnet_id: subnet-0dd81e218287e96ca
          assign_public_ip: yes
       register: ec2
+
+
+
+
+Note: using variable to pass the values and lauching the instanc in public subnet.
+ ansible-playbook -i ec2.py instance3.yml -e instance_type=t2.micro -e image=ami-05acd51c736cba473 -e region=us-east-1 -e keypair=think-data -e tag_Name=nginx-server -e tag_Service=nginx --extra-vars='ansible_python_interpreter=/usr/bin/python'
