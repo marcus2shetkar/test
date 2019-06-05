@@ -19,3 +19,7 @@
          vpc_subnet_id: subnet-0dd81e218287e96ca
          assign_public_ip: yes
       register: ec2
+      
+      
+      
+      ansible-playbook nginx-server.yml -e instance_type=t2.micro -e image=ami-0756fbca465a59a30 -e region=us-east-1 -e keypair=think-data -e count=1 tag_Name=nginx-server tag_Service=nginx
