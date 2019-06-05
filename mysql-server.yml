@@ -19,3 +19,8 @@
          assign_public_ip: no
       register: ec2
 
+
+
+Please note while running the playbook using the variable to pass the value 
+
+ansible-playbook mysql-server.yml -e instance_type=t2.micro -e security_group=nginx-sg -e image=ami-0756fbca465a59a30 -e region=us-east-1 -e keypair=think-data -e count=1 
