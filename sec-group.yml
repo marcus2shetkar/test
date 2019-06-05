@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks: 
+    
+      - name: create a security group in us-east-2
+        ec2_group:
+          name: launch-wizard-2
+          description: an example ec2 group
+          vpc_id: vpc-08bac3323391867a5
+          region: us-east-1
+          rules:
+            - proto: tcp
+              from_port: 80
+              to_port: 80
+              cidr_ip: 0.0.0.0/0
+            - proto: tcp
+              from_port: 22
+              to_port: 22
+              cidr_ip: 10.0.0.0/8
+        register: security_group
+
+      - name: create a security group in us-east-2
+        ec2_group:
+          name: launch-wizard-3
+          description: an example ec2 group
+          vpc_id: vpc-08bac3323391867a5
+          region: us-east-1
+          rules:
+            - proto: tcp
+              from_port: 3306
+              to_port: 3306
+              cidr_ip: 10.0.0.0/8
+        register: security_group
+

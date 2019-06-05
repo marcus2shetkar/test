@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    
+ 
+    - name: Create an ec2 instance
+      ec2:
+         key_name: "{{ keypair }}"
+         group: launch-wizard-2
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         count: 1
+         instance_tags: Name="{{ tag_Name }}" Service="{{ tag_Service }}"
+         vpc_subnet_id: subnet-0dd81e218287e96ca
+         assign_public_ip: yes
+      register: ec2
